@@ -1,0 +1,23 @@
+<h2 class="page-header">My bids</h2>
+<p id="loggedId" style="display:none"></p>
+<div class="card-deck">
+{{#each mybids}}
+{{#dividedby3 @index}}</div>{{/dividedby3}}
+{{#dividedby3 @index}}<div class="card-deck" style="margin-top:20px;">{{/dividedby3}}
+<div class="card" >
+  <div class="card-body">
+    <h4 class="card-title">{{this.name}}</h4>
+    <p class="card-text">{{this.description}}</p>
+    <p id={{this.id}} style="display:none"></p>
+    <p id="leader-{{this._id}}" class="card-text">{{#if this.leader}}You are a leader{{else}}Someone made a higher offer{{/if}}</p>
+    <p id="price-{{this._id}}" class="card-text">Price: {{this.price}}</p>
+    <form method="post" action="/mybids/{{this._id}}">
+        <div class="form-group">
+            <input type="text" class="form-control" value={{this.price}} style="width:150px; margin:0 auto;" name="price"><button type="submit" id="bidButton" value="{{this._id}}" class="btn btn-default bidButton" style="margin-top:5px;">Bid</button>
+        </div>
+    </form>
+    <a href="/auction/{{this._id}}" class="btn btn-primary">Go to auction</a>
+  </div>
+</div>
+{{/each}}
+</div>

@@ -1,0 +1,40 @@
+<h2 class="page-header">Add auction</h2>
+{{#if errors}}
+      {{#each errors}}
+        <div class="alert alert-danger">{{msg}}</div>
+      {{/each}}
+{{/if}}
+<div class=".col-md-6">
+<form method="post" action="/addauction" enctype="multipart/form-data">
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" name="name">
+    <label>Description</label>
+    <input type="text" class="form-control" name="description">
+    <label>Price</label>
+    <input type="text" class="form-control" name="price">
+    <label>Auction type</label>
+        <select class="form-control" name="listedType">
+            <option value="auction">Auction</option>
+            <option value="buyNow">Buy now</option>
+        </select>
+    <label>Wait before list</label>
+        <select class="form-control" name="wait">
+            <option value="0">none</option>
+            <option value="15">15 minutes</option>
+            <option value="30">30 minutes</option>
+            <option value="60">Hour</option>
+        </select>
+    <label>List for</label>
+        <select class="form-control" name="listTime">
+            <option value="3">1 day</option>
+            <option value="3">3 days</option>
+            <option value="7">7 days</option>
+            <option value="14">14 days</option>
+        </select>
+  <label for="file">Upload photo</label>
+  <input type="file" name="file" id="file" class="custom-file-input">
+  </div>
+  <a href="/" class="btn btn-danger">Cancel</a> <button type="submit" class="btn btn-default">Submit</button>
+</form>
+</div>

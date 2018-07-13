@@ -1,0 +1,16 @@
+<h2 class="page-header">Conversation between {{messages.user1}} and {{messages.user2}}</h2>
+<div class="table-responsive">
+        <div id="messagesRow">
+            <ul>
+                {{#each messages.messages}}
+                <li>{{this.username}}: {{this.message}}</li>
+                {{/each}}
+            </ul>
+        </div>
+            <p id="conversationId" style="display:none;">{{messages._id}}</p>
+            <p id="loggedUsername" style="display:none;">{{user.username}}</p>
+            <div id="sendDiv">
+            <input type="text" value="" id="message" placeholder="Type message..."><br>
+            <button id="sendMessage" type="submit" class="btn btn-default" style="margin-top:5px">Send</button>
+            </div>
+</div>

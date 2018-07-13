@@ -1,0 +1,95 @@
+<div class="container target">
+    <div class="row">
+        <div class="col-sm-10">
+             <h2 class="">My profile</h2>
+             <a href="../editprofile" class="btn btn-success">Edit profile</a> <a href="../changepassword" class="btn btn-warning">Change password</a>
+        </div>
+    </div>
+  <br>
+    <div class="row">
+        <div class="col-sm-3">
+            <ul class="list-group">
+                <li class="list-group-item text-muted" contenteditable="false">User details</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Full name</strong></span>{{user.name}}</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Username</strong></span>{{user.username}}</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Email address</strong></span>{{user.email}}</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Joined</strong></span>{{user.joined}}</li>
+            </ul>
+        </div>
+        <!--/col-3-->
+        <div class="col-sm-9" style="" contenteditable="false">
+            <div class="panel panel-default">
+                <div class="panel-heading">My description</div>
+                <div class="panel-body"> {{user.description}}</div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">Won auctions</div>
+                <div class="panel-body">
+                    <div id="listOfWonAuctions">
+                        <div class="card-deck">
+                        {{#each wonAuctions}}
+                            {{#dividedby3 @index}}</div>{{/dividedby3}}
+                            {{#dividedby3 @index}}<div class="card-deck" style="margin-top:20px;">{{/dividedby3}}
+                                <div class="card" >
+                                    <div class="card-body">
+                                        <h4 class="card-title">{{this.name}}</h4>
+                                        <p class="card-text">Price: {{this.price}}</p>
+                                        <a href="/auction/{{this._id}}" class="btn btn-primary">Go to auction</a> <a href="/editauction/{{this._id}}" class="btn btn-warning">Edit auction</a>
+                                </div>
+                            </div>
+                        {{/each}}
+                        </div>
+                    </div>
+                    <div class="center-block" style="width:40%;">
+                            <button id="paginationButtonWonAuctions" type="submit" class="btn btn-default">Load more</button>
+                        </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">My auctions</div>
+                <div class="panel-body">
+                    <div id="listOfMyAuctions">
+                        <div class="card-deck">
+                        {{#each auctions}}
+                            {{#dividedby3 @index}}</div>{{/dividedby3}}
+                            {{#dividedby3 @index}}<div class="card-deck" style="margin-top:20px;">{{/dividedby3}}
+                                <div class="card" >
+                                    <div class="card-body">
+                                        <h4 class="card-title">{{this.name}}</h4>
+                                        <p class="card-text">Price: {{this.price}}</p>
+                                        <a href="/auction/{{this._id}}" class="btn btn-primary">Go to auction</a> <a href="/editauction/{{this._id}}" class="btn btn-warning">Edit auction</a>
+                                </div>
+                            </div>
+                        {{/each}}
+                        </div>
+                    </div>
+                    <div class="center-block" style="width:40%;">
+                            <button id="paginationButtonMyAuctions" type="submit" class="btn btn-default">Load more</button>
+                        </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">My ended auctions</div>
+                <div class="panel-body">
+                    <div id="listOfEndedAuctions">
+                        <div class="card-deck">
+                        {{#each endedAuctions}}
+                            {{#dividedby3 @index}}</div>{{/dividedby3}}
+                            {{#dividedby3 @index}}<div class="card-deck" style="margin-top:20px;">{{/dividedby3}}
+                                <div class="card" >
+                                    <div class="card-body">
+                                        <h4 class="card-title">{{this.name}}</h4>
+                                        <p class="card-text">Price: {{this.price}}</p>
+                                        <a href="/auction/{{this._id}}" class="btn btn-primary">Go to auction</a>
+                                </div>
+                            </div>
+                        {{/each}}
+                        </div>
+                    </div>
+                    <div class="center-block" style="width:40%;">
+                            <button id="paginationButtonEndedAuctions" type="submit" class="btn btn-default">Load more</button>
+                        </div>
+                </div>
+            </div>
+    </div>
+</div>

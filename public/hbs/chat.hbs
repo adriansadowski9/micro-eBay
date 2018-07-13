@@ -1,0 +1,8 @@
+<h2 class="page-header">Your conversations</h2>
+<div class="table-responsive">
+            <ul id="userRow">
+                {{#each chats}}
+                <li><a href="/chat/{{this.user1}}/{{this.user2}}">Conversation between {{this.user1}} and {{this.user2}}{{#newMessages this.loggedUser this.lastUser this.read}}{{/newMessages}}</a></li>
+                {{/each}}
+            </ul>
+</div>

@@ -1,0 +1,111 @@
+@import "bootstrap.css";
+body {
+  background-color: #F8F9F9;
+  padding-top: 50px;
+  height: 100%;
+}
+body .card {
+  margin: 0 auto;
+  text-align: center;
+}
+body .jumbotron {
+  background-color: #F8F9F9;
+}
+body .custom-file-input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  background-color: white;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+body #paginationButton {
+  width: 100%;
+  margin-top: 15px;
+  height: 70px;
+}
+body #paginationButtonUserAuctions,
+body #paginationButtonWonAuctions,
+body #paginationButtonMyAuctions,
+body #paginationButtonEndedAuctions {
+  width: 100%;
+  margin-top: 10px;
+  height: 40px;
+}
+body #userRow li {
+  margin: 5px auto;
+  text-align: center;
+  height: 100px;
+  line-height: 100px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  list-style-type: none;
+}
+body #userRow li a {
+  margin-top: 50px;
+  color: #212F3D;
+}
+body #messagesRow {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 1%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+body #messagesRow ul {
+  height: 40vh;
+  overflow: auto;
+}
+body #messagesRow ul li {
+  list-style-type: none;
+  text-align: left;
+}
+body #message {
+  margin-top: 1.5%;
+  width: 50%;
+  height: 4vh;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+body #sendDiv {
+  margin: 0 auto;
+  text-align: center;
+}
+body .footer {
+  bottom: 0;
+  text-align: center;
+  position: absolute;
+  padding: 10px 0;
+  line-height: 30px;
+}
+body #overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: #000;
+  opacity: 0.7;
+  display: none;
+  z-index: 100;
+}
+body #overlayContent {
+  position: fixed;
+  width: 100%;
+  top: 100px;
+  left: 0%;
+  text-align: center;
+  display: none;
+  overflow: hidden;
+  z-index: 100;
+}
+body #contentGallery {
+  margin: 0px auto;
+}
+body #auctionPhotoBig,
+body #auctionPhoto {
+  cursor: pointer;
+}

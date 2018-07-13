@@ -1,0 +1,12 @@
+<h2 class="page-header">Buy now</h2>
+{{#if errors}}
+      {{#each errors}}
+        <div class="alert alert-danger">{{msg}}</div>
+      {{/each}}
+{{/if}}
+<form method="post" action="/auction/{{auction._id}}/buynow">
+  <div class="form-group">
+    <label>Are you sure you want to buy {{auction.name}} for {{auction.price}}?</label>
+  </div>
+  <a href="/auction/{{auction._id}}" class="btn btn-danger">Cancel</a> <button type="submit" class="btn btn-default">Buy</button>
+</form>

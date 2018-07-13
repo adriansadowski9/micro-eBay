@@ -1,0 +1,14 @@
+<h2 class="page-header">Edit profile</h2>
+{{#if errors}}
+      {{#each errors}}
+        <div class="alert alert-danger">{{msg}}</div>
+      {{/each}}
+{{/if}}
+<form method="post" action="/editprofile">
+  <div class="form-group">
+    <label>Description</label>
+    <input type="text" class="form-control" value="{{theUser.description}}" name="description">
+  </div>
+
+  <a href="../profile" class="btn btn-danger">Cancel</a> <button type="submit" class="btn btn-default">Submit</button>
+</form>

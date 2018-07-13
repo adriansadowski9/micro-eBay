@@ -1,0 +1,22 @@
+<h2 class="page-header">Edit auction</h2>
+{{#if errors}}
+      {{#each errors}}
+        <div class="alert alert-danger">{{msg}}</div>
+      {{/each}}
+{{/if}}
+<form method="post" action="/editauction/{{auction._id}}">
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" name="name" value="{{auction.name}}">
+    <label>Description</label>
+    <input type="text" class="form-control" name="description" value="{{auction.description}}">
+    <label>Price</label>
+    <input type="text" class="form-control" name="price" value="{{auction.price}}">
+    <label>Auction type</label>
+        <select class="form-control" name="listedType">
+            <option {{#if listedType.typeAuction}}selected{{/if}} value="auction">Auction</option>
+            <option {{#if listedType.typeBuyNow}}selected{{/if}} value="buyNow">Buy now</option>
+        </select>
+  </div>
+  <a href="/" class="btn btn-danger">Cancel</a> <button type="submit" class="btn btn-default">Submit</button>
+</form>

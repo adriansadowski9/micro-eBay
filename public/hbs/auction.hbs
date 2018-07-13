@@ -1,0 +1,53 @@
+<div class="container target">
+    <div class="row">
+        <div class="col-sm-10">
+             <h2 class="">{{auction.name}}</h2>
+             {{#if user}}
+        <a href="/chat/{{user.username}}/{{theUser.username}}" class="btn btn-success">Send private message to auction owner</a>
+        <br><br>
+    {{/if}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <ul id="auctionDetails" class="list-group">
+                <li class="list-group-item text-muted" contenteditable="false">Auction details</li>
+                {{#if auction.photo}}<li class="list-group-item text-muted"><img src="image/{{auction.photo}}" alt="auctionPhoto" id="auctionPhoto" class="img-responsive"></li>{{/if}}
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Owner</strong></span><a href="/user/{{theUser.username}}">{{theUser.username}}</a></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Price</strong></span><span id="price">{{auction.price}}</span></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Type</strong></span>{{auction.listedType}}</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Listed</strong></span>{{auction.listedTime}}</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Ending</strong></span>{{auction.end}}</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Ended</strong></span>{{#if auction.ended}}Yes{{else}}No{{/if}}</li>
+            </ul>
+        </div>
+        <!--/col-3-->
+        <div class="col-sm-9" style="" contenteditable="false">
+            <div class="panel panel-default">
+            <div class="panel-heading">Auction</div>
+            <div class="panel-body"> 
+            {{#if auction.ended}}Auction ended{{else}}
+            {{#if listedType.typeBuyNow}}<p style="text-align:center;margin:0 auto;"><strong class="">Price: </strong>{{auction.price}} <br><a href="/auction/{{auction._id}}/buynow" class="btn btn-success">Buy now</a></p>{{/if}}
+             {{#if listedType.typeAuction}}
+             <form method="post" action="/auction/{{auction._id}}">
+                 <div class="form-group"style="margin: 0 auto;text-align:center;">
+                    <p id={{auction._id}}>{{#if auction.leader}}You are a leader{{else}}Someone made a higher offer{{/if}}</p>
+                    <input type="text" class="form-control" name="price" value="{{auction.price}}"style="width:150px; margin:0 auto;"> <button type="submit" value="{{auction._id}}" id="bidButton" class="btn btn-default bidButton" style="margin-top:5px;">Bid</button>
+                </div>
+            </form>
+             {{/if}}
+            {{/if}}
+            </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">Auction description</div>
+                <div class="panel-body"> {{auction.description}}</div>
+            </div>
+    </div>
+</div>
+{{#if auction.photo}}<div id="overlay"></div>
+<div id="overlayContent">
+    <div id="contentGallery">
+        <img id="auctionPhotoBig" src="" alt="auctionPhotoBig" width="35%" />
+    </div>
+</div>{{/if}}

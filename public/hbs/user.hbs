@@ -1,0 +1,51 @@
+<div class="container target">
+    <div class="row">
+        <div class="col-sm-10">
+             <h1 class="">{{theUser.name}}</h1>
+        </div>
+    </div>
+    {{#if user}}
+        <a href="/chat/{{user.username}}/{{theUser.username}}" class="btn btn-success">Private message</a>
+        <br>
+    {{/if}}
+  <br>
+    <div class="row">
+        <div class="col-sm-3">
+            <ul class="list-group">
+                <li class="list-group-item text-muted" contenteditable="false">User details</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Username</strong></span><span id="userLogin">{{theUser.username}}</span></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Email address</strong></span>{{theUser.email}}</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Joined</strong></span>{{theUser.joined}}</li>
+            </ul>
+        </div>
+        <!--/col-3-->
+        <div class="col-sm-9" style="" contenteditable="false">
+            <div class="panel panel-default">
+                <div class="panel-heading">{{theUser.name}}'s description</div>
+                <div class="panel-body"> {{theUser.description}}</div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">{{theUser.name}}'s auctions</div>
+                <div class="panel-body">
+                    <div id="listOfUserAuctions">
+                        <div class="card-deck">
+                        {{#each auctions}}
+                            {{#dividedby3 @index}}</div>{{/dividedby3}}
+                            {{#dividedby3 @index}}<div class="card-deck" style="margin-top:20px;">{{/dividedby3}}
+                                <div class="card" >
+                                    <div class="card-body">
+                                        <h4 class="card-title">{{this.name}}</h4>
+                                        <p class="card-text">Price: {{this.price}}</p>
+                                        <a href="/auction/{{this._id}}" class="btn btn-primary">Go to auction</a>
+                                </div>
+                            </div>
+                        {{/each}}
+                        </div>
+                    </div>
+                    <div class="center-block" style="width:40%;">
+                            <button id="paginationButtonUserAuctions" type="submit" class="btn btn-default">Load more</button>
+                        </div>
+                </div>
+            </div>
+    </div>
+</div>
